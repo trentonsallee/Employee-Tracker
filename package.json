@@ -1,0 +1,21 @@
+{
+    "name": "employee-tracker",
+    "version": "1.0.0",
+    "description": "This application is a command-line interface (CMS) to manage a company's employee database. This application uses Node.js, Inquirer, and MySQL.",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index"
+    },
+    "author": "Trenton Sallee",
+    "license": "ISC",
+    "homepage": "https://github.com/trentonsallee/Employee-Tracker",
+    "bugs": {
+      "url": "https://github.com/trentonsallee/Employee-Tracker/issues"
+    },
+    "dependencies": {
+      "console.table": "^0.10.0",
+      "inquirer": "8.2.4",
+      "mysql2": "^2.1.0"
+    }
+  }
+  
