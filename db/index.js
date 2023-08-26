@@ -5,9 +5,9 @@ class DB {
         this.connection = connection;
     }
 
-findAllEmployees() {
+findTheEmployees() {
     return this.connection.promise().query(
-        "SELECT employee.id, employee.first_name, employee.last_name"
+        "employee.first_name, employee.last_name"
     );
 }
 createEmployee(employee) {

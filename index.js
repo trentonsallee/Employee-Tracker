@@ -1,11 +1,13 @@
-const db = require("./db");
+const db = require("./db/connection");
 require("console.table");
 const databaseEdits = require(`./databaseEdits`);
+const { prompt } = require("inquirer");
+
 
 Init();
 
 function Init() {
-    console.log()
+    console.log("Welcome")
     userPrompts();
 }
 
@@ -28,29 +30,11 @@ function userPrompts () {
                 name: "Remove an employee",
                 value: "REMOVE_EMPLOYEE"
             },
-            {
-                name: "",
-                value: ""
-            },
-            {
-                name: "",
-                value: ""
-            },
-            {
-                name: "",
-                value: ""
-            },
-            {
-                name: "",
-                value: ""
-            },
             ]
         }
-    ])
-    .then(res => {
+    ]) .then(res => {
         let choice = res.choice;
         switch (choice) {
-
             case "FIND_ALL_EMPLOYEES":
               findAllEmployees();
               break;
@@ -62,6 +46,17 @@ function userPrompts () {
             case "REMOVE_EMPLOYEE": 
                 removeEmployee();
                 break;
-        }
+        }  
     })
 }
+
+
+function findAllEmployees() {
+    db.findTheEmployees()
+      .then(([rows]) => {
+        let employees = rows;
+        console.log("\n");
+        console.table(employees);
+      })
+      .then(() => userPrompts());
+  }
